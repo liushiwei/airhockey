@@ -1,9 +1,9 @@
 LOCAL_PATH := $(call my-dir)
-PROJECT_ROOT_PATH := $(LOCAL_PATH)/../../../
-CORE_RELATIVE_PATH := ../../../core/
+PROJECT_ROOT_PATH := $(LOCAL_PATH)/../../..
+CORE_RELATIVE_PATH := ../../../core
 
 include $(CLEAR_VARS)
-
+$(call import-add-path,$(PROJECT_ROOT_PATH)/3rdparty/libpng)
 LOCAL_MODULE    := game
 LOCAL_CFLAGS    := -Wall -Wextra
 LOCAL_SRC_FILES := platform_asset_utils.c \
@@ -21,6 +21,7 @@ LOCAL_SRC_FILES := platform_asset_utils.c \
 LOCAL_C_INCLUDES := $(PROJECT_ROOT_PATH)/platform/common/
 LOCAL_C_INCLUDES += $(PROJECT_ROOT_PATH)/core/
 LOCAL_C_INCLUDES += $(PROJECT_ROOT_PATH)/3rdparty/linmath/
+LOCAL_C_INCLUDES += $(PROJECT_ROOT_PATH)/3rdparty/libpng/
 LOCAL_STATIC_LIBRARIES := libpng
 LOCAL_LDLIBS := -lGLESv2 -llog -landroid
 
